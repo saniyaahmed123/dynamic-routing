@@ -1,10 +1,8 @@
 import React from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
-import Button from './Button';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 function Navbar() {
-  const location = useLocation();
 
   return (
     <div>
@@ -33,24 +31,36 @@ function Navbar() {
         <div className="flex items-center space-x-6">
           <div className="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-700">
             {/* Modernized Home Link */}
-            <NavLink to="/" className={`${({isActive})=>  isActive ? 'underline underline-offset-8 decoration-2 decoration-indigo-600 font-semibold text-indigo-600' : ''} hover:text-indigo-600 transition`}>
+            <NavLink to="/" className={({ isActive }) => isActive ? 'underline underline-offset-8 decoration-2 decoration-indigo-600 font-semibold text-indigo-600 hover:text-indigo-600 transition' : 'hover:text-indigo-600 transition'}>
               Home
             </NavLink>
 
             {/* Modernized Courses Link */}
-            <NavLink to="/courses" className={`${({isActive})=> isActive ? 'underline underline-offset-8 decoration-2 decoration-indigo-600 font-semibold text-indigo-600' : ''} hover:text-indigo-600 transition`}>
+            <NavLink to="/courses" className={({ isActive }) => isActive ? 'underline underline-offset-8 decoration-2 decoration-indigo-600 font-semibold text-indigo-600 hover:text-indigo-600 transition' : 'hover:text-indigo-600 transition'}>
               Courses
             </NavLink>
           </div>
 
-          {/* Cart Icon */}
-          <a href="#" className="text-gray-700 hover:text-indigo-600 p-1 transition">
+          {/* Settings Icon (Replaced Shopping Cart) */}
+          <a href="#" className="text-gray-700 hover:text-[#202230] p-1 transition">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
           </a>
 
-          <Button text="contact" />
+          {/* User Section with Initial Avatar, Welcome Text, and Student Badge */}
+          <div className="flex items-center space-x-3 border-l border-gray-200 pl-4">
+            <NavLink to='/profile' className={(isActive) => { isActive ? 'text-blue-950 ' : ' ' }}><div className="w-9 h-9 rounded-full bg-[#202230] text-white font-bold flex items-center justify-center text-sm shadow-sm">
+              A
+            </div></NavLink>
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-semibold text-gray-800">Welcome, Ali</span>
+              <span className="text-[10px] font-medium text-[#202230] bg-indigo-50 px-2 py-0.5 rounded-full w-fit mt-0.5">
+                Student
+              </span>
+            </div>
+          </div>
         </div>
       </nav>
     </div>

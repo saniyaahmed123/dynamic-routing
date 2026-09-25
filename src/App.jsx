@@ -7,16 +7,18 @@ import Lifestyle from './pages/Lifestyle'
 import Allcourses from './pages/Allcourses'
 import Arrow from './components/Arrow'
 import back from './assets/back.png'
+import Profile from './pages/Profile'
 
 
 
 function App() {
   return (
     <div>
-      <Arrow path={back} state='back'/>
+      
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/profile' element={<Profile />} />
         <Route path='/courses' element={<Courses />}>
           <Route index element={<Allcourses />} />
           <Route path='IT' element={<IT />} />
